@@ -2,10 +2,19 @@ package com.protonmail.kschay.fitness_app.domain;
 
 public class Exercise {
 
-    public Exercise(){}
-
+    private String id;
     private String name;
     private String description;
+
+    public Exercise(){}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
