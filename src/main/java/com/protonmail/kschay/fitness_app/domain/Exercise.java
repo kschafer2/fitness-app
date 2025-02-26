@@ -1,20 +1,21 @@
 package com.protonmail.kschay.fitness_app.domain;
 
-public class Exercise {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.UuidGenerator;
 
+@Entity
+@Table(name = "EXERCISE")
+public class Exercise implements IdentifiedEntity<String> {
+
+    @Id
+    @UuidGenerator(style = UuidGenerator.Style.RANDOM)
     private String id;
     private String name;
     private String description;
 
     public Exercise(){}
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -30,5 +31,15 @@ public class Exercise {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 }

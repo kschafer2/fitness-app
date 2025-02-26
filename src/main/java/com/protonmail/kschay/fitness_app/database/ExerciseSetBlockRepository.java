@@ -1,9 +1,9 @@
 package com.protonmail.kschay.fitness_app.database;
 
-import com.protonmail.kschay.fitness_app.domain.Exercise;
+import com.protonmail.kschay.fitness_app.domain.ExerciseSetBlock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExerciseRepository extends JpaRepository<Exercise, String> {
+public interface ExerciseSetBlockRepository extends JpaRepository<ExerciseSetBlock, String> {
 }

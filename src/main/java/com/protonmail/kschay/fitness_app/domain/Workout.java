@@ -1,11 +1,21 @@
 package com.protonmail.kschay.fitness_app.domain;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
-public class Workout {
+@Entity
+@Table(name = "WORKOUT")
+public class Workout implements IdentifiedEntity<String> {
 
+    @Id
+    @UuidGenerator(style = UuidGenerator.Style.RANDOM)
+    private String id;
+    @ElementCollection
+    @CollectionTable(name = "WORKOUT_EXERCISE_SET_BLOCK", joinColumns = @JoinColumn(name = "workout_id"))
     private Collection<ExerciseSetBlock> exercises;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
@@ -41,5 +51,15 @@ public class Workout {
     public Duration getDuration() {
         duration = Duration.between(startDateTime, endDateTime);
         return duration;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 }

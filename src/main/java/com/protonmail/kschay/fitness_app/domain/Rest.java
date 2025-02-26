@@ -1,12 +1,25 @@
 package com.protonmail.kschay.fitness_app.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import org.hibernate.annotations.UuidGenerator;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Rest {
+@Entity
+@Table(name = "REST")
+public class Rest implements IdentifiedEntity<String> {
 
+    @Id
+    @UuidGenerator(style = UuidGenerator.Style.RANDOM)
+    private String id;
+    @Transient
     private final Timer timer;
     private final int duration;
+    @Transient
     private int remainingTime;
 
     public Rest(int durationSeconds) {
@@ -34,5 +47,15 @@ public class Rest {
 
     public int getDuration() {
         return duration;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 }

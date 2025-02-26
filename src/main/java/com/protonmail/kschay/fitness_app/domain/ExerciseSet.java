@@ -1,10 +1,24 @@
 package com.protonmail.kschay.fitness_app.domain;
 
-public class ExerciseSet {
+import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 
+@Entity
+@Table(name = "EXERCISE_SET")
+public class ExerciseSet implements IdentifiedEntity<String> {
+
+    @Id
+    @UuidGenerator(style = UuidGenerator.Style.RANDOM)
+    private String id;
+    @ManyToOne
+    @JoinColumn(name = "exercise_id")
     private Exercise exercise;
+    @OneToOne
+    @JoinColumn(name = "weight_id")
     private Weight weight;
     private int reps;
+    @OneToOne
+    @JoinColumn(name = "rest_id")
     private Rest rest;
 
     public ExerciseSet(ExerciseSet exerciseSet) {
@@ -48,5 +62,15 @@ public class ExerciseSet {
 
     public void setRest(Rest rest) {
         this.rest = rest;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 }
