@@ -1,15 +1,17 @@
 package com.protonmail.kschay.fitness_app.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "EXERCISE")
+@Table(name = "exercise")
 public class Exercise implements IdentifiedEntity<String> {
 
     @Id
+    @GeneratedValue
     @UuidGenerator(style = UuidGenerator.Style.RANDOM)
     private String id;
     private String name;

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 
 @Entity
-@Table(name = "EXERCISE_SET_BLOCK")
+@Table(name = "exercise_set_block")
 public class ExerciseSetBlock implements IdentifiedEntity<String> {
 
     @Id

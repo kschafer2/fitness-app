@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "EXERCISE_SET")
+@Table(name = "exercise_set")
 public class ExerciseSet implements IdentifiedEntity<String> {
 
     @Id

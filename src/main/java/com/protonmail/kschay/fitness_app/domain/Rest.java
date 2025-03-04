@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 @Entity
-@Table(name = "REST")
+@Table(name = "rest")
 public class Rest implements IdentifiedEntity<String> {
 
     @Id

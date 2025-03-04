@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "WEIGHT")
+@Table(name = "weight")
 public class Weight implements IdentifiedEntity<String> {
 
     @Id

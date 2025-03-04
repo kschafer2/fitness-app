@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
 public abstract class CrudController<T extends IdentifiedEntity<ID>, ID> {
 
     protected final CrudRepository<T, ID> repository;
